@@ -38,6 +38,9 @@ int main(void)
     double delta = 5;
     double rangox = N/500;
     double rangoy = N/744;
+    double h = 0;
+    double b = 0;
+    double c = 0;
     xf = 2*_random() *N/500;
     
     yf = 2*_random() *N/744;
@@ -63,6 +66,12 @@ int main(void)
         y0 = y0 - 500;
     }
     r0 = Calcular_radio(x0, y0,x,y);
+    
+    if(h<rf){
+        h = rf;
+        b = xf;
+        c = yf;
+    }
 
     alpha = exp((r0 - rf));
 
@@ -80,7 +89,7 @@ int main(void)
        
 
 }
-    
+printf("Las coordenadas del punto mas alejado son: %f %f\n", b ,c);  
     
 //fclose(data);
     return 0;
